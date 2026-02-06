@@ -1,12 +1,27 @@
 import React from 'react'
+import { BrowserRouter, Routes , Route, Navigate } from 'react-router-dom'
+import Home from './Home'
+import Notes from './notes/pages/Notes'
+import Calendar from './calender/pages/Calender'
+import Login from './auth/pages/Login'
+import Register from './auth/pages/Register'
+import About from './about/pages/about'
 
-export default function App() {
+function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50">
-      <div className="p-8 bg-white rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold text-indigo-600">The Furnace</h1>
-        <p className="mt-2 text-gray-600">Vite + React + Tailwind starter</p>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/notes" element={<Notes />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Navigate to="/home" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
+
+export default App;
