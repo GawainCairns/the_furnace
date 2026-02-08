@@ -14,8 +14,7 @@ function Footer() {
     <footer>
       <div className="footer">
         <div className="footer-text">
-          <p>© 2024 The Furnace.</p>
-          <p>All rights reserved.</p>
+          <p>© 2024 The Furnace. All rights reserved.</p>
         </div>
         <div className="footer-links">
           <a className="footer-link" onClick={aboutPage}>About</a>
