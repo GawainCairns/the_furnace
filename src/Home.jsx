@@ -7,7 +7,7 @@ function Home() {
     <div>
       <Navbar />
       <main>
-        <div className="card">
+        <div className="card w-[500px]">
           <h1 className="card-title">Home</h1>
           <p>Welcome to The Furnace! This is the home page.</p>
         </div>

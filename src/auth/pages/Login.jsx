@@ -55,20 +55,22 @@ function Login() {
       <Navbar />
       <main>
         <div className="card-login">
-          <h1 className="card-title">Login</h1><br />
-          <form className="form-login" onSubmit={handleSubmit}>
+          <h1 className="card-title">Login</h1>
+          <form className="form" onSubmit={handleSubmit}>
             <input 
               type="text" 
+              className="input"
               id="Username"
               placeholder="Username" 
-              required value={username} onChange={updateUsername} /><br />
+              required value={username} onChange={updateUsername} />
             <input 
               type="password" 
+              className="input"
               id="Password"
               placeholder="Password" 
-              required value={password} onChange={updatePassword} /><br />
-            <button type="submit" disabled={!isValid}>Login</button><br />
-            <button onClick={registerPage}>Register</button>
+              required value={password} onChange={updatePassword} />
+            <button type="submit" disabled={!isValid} className="btn-auth">Login</button>
+            <button onClick={registerPage} className="btn-auth">Register</button>
           </form>
         </div>
       </main>

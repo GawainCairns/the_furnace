@@ -4,24 +4,26 @@ import { useNavigate } from "react-router-dom";
 
 
 function Footer() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    // Navigation
-    const aboutPage = () => {
-      navigate("/about");
-    }
-    return (
-        <footer>
-            <div className="footer">
-                <p>© 2026 The Furnace. All rights reserved.</p>
-                <div>  
-                    <a className="footer-link" onClick={aboutPage}>About</a>
-                </div>
-                
-                <Logo2 width={32} height={32} color="blue" />
-            </div>
-        </footer>
-    );
+  // Navigation
+  const aboutPage = () => {
+    navigate("/about");
+  }
+  return (
+    <footer>
+      <div className="footer">
+        <div className="footer-text">
+          <p>© 2024 The Furnace.</p>
+          <p>All rights reserved.</p>
+        </div>
+        <div className="footer-links">
+          <a className="footer-link" onClick={aboutPage}>About</a>
+        </div>
+        <Logo2 width={32} height={32} color="blue" />
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

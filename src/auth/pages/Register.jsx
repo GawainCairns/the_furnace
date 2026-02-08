@@ -80,31 +80,36 @@ function Register() {
           <form className="form-login" onSubmit={handleSubmit}>
             <input 
               type="text" 
+              className="input"
               id="username" 
               placeholder="Username" 
-              required value={username} onChange={updateUsername} /><br />
+              required value={username} onChange={updateUsername} />
             <input 
               type="password" 
+              className="input"
               id="password" 
               placeholder="Password" 
-              required value={password} onChange={updatePassword} /><br />
+              required value={password} onChange={updatePassword} />
             <input 
               type="password" 
+              className="input"
               id="conPassword" 
               placeholder="Confirm Password" 
-              required value={conPassword} onChange={updateConPassword} /><br />
+              required value={conPassword} onChange={updateConPassword} />
             <input 
               type="text" 
+              className="input"
               id="email" 
               placeholder="Email" 
-              required value={email} onChange={updateEmail} /><br />
+              required value={email} onChange={updateEmail} />
             <input 
               type="text" 
+              className="input"
               id="phone" 
               placeholder="Phone" 
-              required value={phone} onChange={updatePhone} /><br />
-            <button type="submit" disabled={!isValid}>Register</button><br />
-            <button onClick={loginPage}>Login</button>
+              required value={phone} onChange={updatePhone} />
+            <button type="submit" disabled={!isValid} className="btn-auth">Register</button>
+            <button onClick={loginPage} className="btn-auth">Login</button>
           </form>
         </div>
       </main>

@@ -20,14 +20,16 @@ function Navbar() {
   }
   return (
     <header>
-      <nav className="navbar">
-        <div className="navbar-logo" onClick={homePage}>
-          <Logo className="navbar-logo-icon" height={40} width={40} color="var(--primary)"/>
-          <h1 className="navbar-title">The Furnace</h1>
+      <nav className="Nav">
+        <div className="Nav-Brand" onClick={homePage}>
+          <Logo className="Nav-Logo" height={40} width={40}/>
+          <h1 className="Nav-Title">The Furnace</h1>
         </div>
-        <a className="navbar-links" onClick={notesPage}>Notes</a>
-        <a className="navbar-links" onClick={calendarPage}>Calendar</a>
-        <a className="navbar-links-right" onClick={loginPage}>Login</a>
+        <div className="Nav-Links">
+          <a className="Nav-Link" onClick={notesPage}>Notes</a>
+          <a className="Nav-Link" onClick={calendarPage}>Calendar</a>
+          <a className="Nav-Link" onClick={loginPage}>Login</a>
+        </div>
       </nav>
     </header>
   );
