@@ -12,6 +12,18 @@
   --color-text-contrast: oklch(0.95 0.05 200);
   --color-border: oklch(0% 0 0 / 0.2);
   --shadow-color: oklch(0.2 0.1 20 / 0.5);
+  --navbar-height: 90px;
+  --footer-height: 72px;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+#root > div {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
   
 @layer base {
@@ -21,84 +33,61 @@
     line-height: 1.5;
     background-color: var(--color-background);
     color: var(--color-text);
-    @apply items-center justify-center min-h-screen;
+    @apply min-h-screen flex flex-col;
+    padding-bottom: var(--footer-height);
   }
 }
 
 @layer components {
+  /* Layout */
+  main { @apply flex; }
+
+  /* Shared component utilities */
+  .surface { @apply rounded-md shadow-md border border-[var(--color-border)]; }
+  .surface-white { @apply surface bg-white; }
+  .text-primary { color: var(--color-primary); }
+  .text-secondary { color: var(--color-secondary); }
+  .btn { @apply px-2 py-2 mt-1 rounded-md shadow-md transition-colors duration-100 bg-[var(--color-primary)] text-white; }
+  .btn--full { @apply w-full text-[var(--color-text-contrast)]; }
+  .btn:hover, .btn--full:hover { @apply bg-[var(--color-secondary)]; }
+
   /* Navbar */
-  .Nav {
-    @apply flex items-center justify-between p-4 mb-4 border-b border-[var(--color-border)] shadow-md bg-[var(--color-background)];
-  }
-  .Navbar {
-    @apply flex items-center justify-between w-full;
-  }
-  .Nav-Brand {
-    @apply flex items-center cursor-pointer text-[var(--color-accent)];
-  }
-  .Nav-Logo {
-    @apply mr-2;
-  }
-  .Nav-Title {
-    @apply text-xl font-bold text-[var(--color-primary)];
-  }
-  .Nav-Links {
-    @apply flex space-x-8;
-  }
-  .Nav-Link {
-    @apply transition-colors duration-100 text-[var(--color-primary)];
-  }
-  .Nav-Link:hover {
-    @apply text-[var(--color-secondary)];
-  }
+  .Nav { @apply flex justify-between p-4 mb-4 border-b border-[var(--color-border)] bg-[var(--color-background)]; }
+  .Navbar { @apply flex space-x-8; }
+  .Nav-Brand { @apply flex cursor-pointer; color: var(--color-accent); }
+  .Nav-Logo { @apply mr-2; }
+  .Nav-Title { @apply text-xl font-bold; color: var(--color-primary); }
+  .Nav-Links { @apply flex space-x-8; }
+  .Nav-Link { @apply transition-colors duration-100; color: var(--color-primary); }
+  .Nav-Link:hover { color: var(--color-secondary); }
 
   /* Footer */
   .footer {
-    @apply flex justify-center sticky bottom-0 p-4 mt-4 border-t border-[var(--color-border)] bg-[var(--color-background)];
+    @apply flex justify-center p-4 border-t border-[var(--color-border)] bg-[var(--color-background)];
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--footer-height);
+    z-index: 40;
   }
-  .footer-links {
-    @apply flex mx-auto space-x-8;
-  }
-  .footer-link {
-    @apply transition-colors duration-100 text-[var(--color-primary)];
-  }
-  .footer-link:hover {
-    @apply text-[var(--color-secondary)];
-  }
+  .footer-links { @apply flex mx-auto space-x-8; }
+  .footer-link { @apply transition-colors duration-100; color: var(--color-primary); }
+  .footer-link:hover { color: var(--color-secondary); }
 
-  /* Card */
-  .card {
-    @apply bg-white min-w-[450px] mx-auto rounded-md shadow-md p-4 border border-[var(--color-border)];
-  }
-  .card-title {
-    @apply text-lg font-semibold mb-2 text-[var(--color-primary)];
-  }
-  .card-content {
-    @apply text-[var(--color-text)];
-  }
-  .card-register, .card-login {
-    @apply bg-white w-[450px] mx-auto rounded-md shadow-md p-4 border border-[var(--color-border)];
-  }
+  /* Cards */
+  .card { @apply surface-white min-w-[450px] mx-auto p-4; }
+  .card-title { @apply font-semibold mb-2; color: var(--color-primary); }
+  .card-content { color: var(--color-text); }
+  .card-register, .card-login { @apply surface-white w-[450px] mx-auto p-4; }
 
-  /* Form */
-  /* Button */
-  .btn {
-    @apply px-2 py-2 mt-1 bg-[var(--color-primary)] text-white rounded-md shadow-md transition-colors duration-100;
-  }
-  .btn:hover {
-    @apply bg-[var(--color-secondary)];
-  }
-  .btn-auth {
-    @apply w-full px-2 py-2 mt-1 bg-[var(--color-primary)] text-[var(--color-text-contrast)] rounded-md shadow-md transition-colors duration-100;
-  }
-  .btn-auth:hover {
-    @apply bg-[var(--color-secondary)];
-  }
-
-  /* Input */
-  .input {
-    @apply w-full px-1 py-1 mt-1 border border-[var(--color-border)] rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)];
-  }
+  /* Form inputs */
+  .input { @apply w-full px-1 py-1 mt-1 rounded-md border border-[var(--color-border)] focus:outline-none; }
+  .input:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent); }
+  /* Form buttons */
+  .btn { @apply px-2 py-2 mt-1 rounded-md shadow-md transition-colors duration-100 bg-[var(--color-primary)] text-white; }
+  .btn--full { @apply w-full text-[var(--color-text-contrast)]; }
+  .btn:hover, .btn--full:hover { @apply bg-[var(--color-secondary)]; }
 }
 
-
+/* Ensure the app root fills the viewport so footer can use mt-auto */

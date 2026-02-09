@@ -55,7 +55,7 @@ function Login() {
       <Navbar />
       <main>
         <div className="card-login">
-          <h1 className="card-title">Login</h1>
+          <h1 className="card-title text-3xl">Login</h1>
           <form className="form" onSubmit={handleSubmit}>
             <input 
               type="text" 
@@ -69,8 +69,8 @@ function Login() {
               id="Password"
               placeholder="Password" 
               required value={password} onChange={updatePassword} />
-            <button type="submit" disabled={!isValid} className="btn-auth">Login</button>
-            <button onClick={registerPage} className="btn-auth">Register</button>
+            <button type="submit" disabled={!isValid} className="btn flex w-full justify-center">Login</button>
+            <button onClick={registerPage} className="btn flex w-full justify-center">Register</button>
           </form>
         </div>
       </main>

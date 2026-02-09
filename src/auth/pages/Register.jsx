@@ -76,7 +76,7 @@ function Register() {
       <Navbar />
       <main>
         <div className="card-register">
-          <h1 className="card-title">Register</h1>
+          <h1 className="card-title text-3xl">Register</h1>
           <form className="form-login" onSubmit={handleSubmit}>
             <input 
               type="text" 
@@ -108,8 +108,8 @@ function Register() {
               id="phone" 
               placeholder="Phone" 
               required value={phone} onChange={updatePhone} />
-            <button type="submit" disabled={!isValid} className="btn-auth">Register</button>
-            <button onClick={loginPage} className="btn-auth">Login</button>
+            <button type="submit" disabled={!isValid} className="btn flex w-full justify-center">Register</button>
+            <button onClick={loginPage} className="btn flex w-full justify-center">Login</button>
           </form>
         </div>
       </main>

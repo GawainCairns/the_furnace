@@ -11,7 +11,7 @@ function About() {
     <div>
       <Navbar />
       <main>
-        <div className="card">
+        <div className="card w-[750px]">
           <h1 className="card-title">About The Furnace</h1>
           <p>The Furnace is a testing and learning platform for me to learn how React and Node.js work.</p>
           <p>Features:</p>
